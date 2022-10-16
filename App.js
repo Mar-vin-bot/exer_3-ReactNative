@@ -19,11 +19,32 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.topoContainer}>
         <Text style={styles.topoTexto}>Ligtheria</Text>
-        <Image style={styles.topoImagem} source={require('./assets/icone-sacola.png')} />
-        <StatusBar />
+        <View style={styles.topoImageContainer}>
+          <Image style={styles.topoImagem} source={require('./assets/icone-sacola.png')} />
+        </View>
       </View>
-    </View>
 
+      {/*titulo*/}
+      <View style={styles.tituloContainer}>
+        <Text>Categorias</Text>
+      </View>
+
+      {/*lista de imagem*/}
+      <View style={styles.listaContainer}>
+        <View style={styles.listaLinhaContainer}>
+          <View style={styles.card}>
+
+            <Image source={require('./assets/01-tablelamps.png')} style={styles.cardImage}></Image>
+            <Text style={styles.cardText}>Abajur</Text>
+          </View>
+        </View>
+      </View>
+
+
+
+      <StatusBar />
+
+    </View>
   );
 }
 
@@ -42,10 +63,42 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
-  topoTexto:{
-    fontWeight: "bold",
+
+  topoImageContainer: {
+    backgroundColor: "white",
+    borderRadius: 40,
+    padding: 20,
+  },
+
+  topoTexto: {
+
     fontSize: 40,
     fontFamily: "Lato_900Black",
-    
+
   },
+  tituloTexto: {
+    fontSize: 16,
+    color: "#999",
+    marginTop: -16,
+    backgroundColor: "#ccc",
+    paddingHorizontal: 16,
+  },
+
+  tituloContainer: {
+    alignItems: "center",
+    borderTopColor: "#888",
+    borderTopWidth: 1,
+    marginTop: 20,
+  },
+
+  listaContainer: {
+
+  },
+  listaLinhaContainer: {},
+  card: {},
+  cardImage: {},
+  cardText: {},
+
+
+
 });
