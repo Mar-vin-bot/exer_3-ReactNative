@@ -26,7 +26,7 @@ export default function App() {
 
       {/*titulo*/}
       <View style={styles.tituloContainer}>
-        <Text>Categorias</Text>
+        <Text style={styles.tituloTexto}>Categorias</Text>
       </View>
 
       {/*lista de imagem*/}
@@ -36,14 +36,12 @@ export default function App() {
 
             <Image source={require('./assets/01-tablelamps.png')} style={styles.cardImage}></Image>
             <Text style={styles.cardText}>Abajur</Text>
+
+
           </View>
         </View>
       </View>
-
-
-
       <StatusBar />
-
     </View>
   );
 }
@@ -91,11 +89,16 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 
-  listaContainer: {
-
-  },
+  listaContainer: {},
   listaLinhaContainer: {},
-  card: {},
+  card: {
+    backgroundColor: "white",
+    borderRadius:10,
+    flex: 1,
+    width: "48%",
+    borderColor:"red",
+    borderWidth: 1,
+  },
   cardImage: {},
   cardText: {},
 
