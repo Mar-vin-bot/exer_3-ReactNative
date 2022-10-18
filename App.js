@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useFonts, Lato_900Black } from '@expo-google-fonts/lato';
 
 
@@ -16,33 +16,24 @@ export default function App() {
   }
 
   return (
+
     <View style={styles.container}>
-      <View style={styles.topoContainer}>
-        <Text style={styles.topoTexto}>Ligtheria</Text>
-        <View style={styles.topoImageContainer}>
-          <Image style={styles.topoImagem} source={require('./assets/icone-sacola.png')} />
-        </View>
-      </View>
+      {topo()}
 
       {/*titulo*/}
-      <View style={styles.tituloContainer}>
-        <Text style={styles.tituloTexto}>Categorias</Text>
-      </View>
+      {titulo()}
 
       {/*lista de imagem*/}
-      <View style={styles.listaContainer}>
-        <View style={styles.listaLinhaContainer}>
-          <View style={styles.card}>
-
-            <Image source={require('./assets/01-tablelamps.png')} style={styles.cardImage}></Image>
-            <Text style={styles.cardText}>Abajur</Text>
-
-
-          </View>
+      <ScrollView>
+        <View style={styles.listaContainer}>
+          {linha()}
+          {linha()}
+          {linha()}
         </View>
-      </View>
+      </ScrollView>
       <StatusBar />
     </View>
+
   );
 }
 
@@ -89,19 +80,68 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 
-  listaContainer: {},
-  listaLinhaContainer: {},
+  listaContainer: {
+    paddingTop: 20,
+  },
+
+  listaLinhaContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 10,
+
+  },
+
   card: {
     backgroundColor: "white",
-    borderRadius:10,
-    flex: 1,
+    borderRadius: 10,
     width: "48%",
-    borderColor:"red",
-    borderWidth: 1,
+    alignItems: "center",
+    paddingVertical: 28,
+
   },
-  cardImage: {},
-  cardText: {},
+  cardImage: {
+    height: 120,
+
+  },
+  cardText: {
+    fontSize: 18,
+    paddingTop: 12,
+
+  },
 
 
 
 });
+function linha() {
+  return <View style={styles.listaLinhaContainer}>
+    {card()}
+    {card()}
+
+
+
+  </View>;
+}
+
+function card() {
+  return <View style={styles.card}>
+    <Image source={require('./assets/01-tablelamps.png')} resizeMode="contain"
+      style={styles.cardImage}></Image>
+    <Text style={styles.cardText}>Abajur</Text>
+  </View>;
+}
+
+function titulo() {
+  return <View style={styles.tituloContainer}>
+    <Text style={styles.tituloTexto}>Categorias</Text>
+  </View>;
+}
+
+function topo() {
+  return <View style={styles.topoContainer}>
+    <Text style={styles.topoTexto}>Ligtheria</Text>
+    <View style={styles.topoImageContainer}>
+      <Image style={styles.topoImagem} source={require('./assets/icone-sacola.png')} />
+    </View>
+  </View>;
+}
+
