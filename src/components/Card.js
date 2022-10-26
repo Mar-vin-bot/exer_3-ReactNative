@@ -6,11 +6,10 @@ import { styles } from '../utils/styles';
 
 
 export default function Card({ id }) {
-  const { text, image } = getDataByIdById(id);
+  const { text, image } = getDataById(id);
 
   return (
     <View style={styles.card}>
-
       <Image source={image}
         resizeMode="contain"
         style={styles.cardImage}>
