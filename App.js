@@ -1,11 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useFonts, Lato_900Black } from '@expo-google-fonts/lato';
-import Card from './src/components/Card';
-import { styles } from './src/utils/styles';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DatailsScreen from './src/screens/DatailsScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 
-export default function App() {
+
+const App = () =>{
+  const Stack = createNativeStackNavigator();
+
 
   let [fontsLoaded] = useFonts({
     Lato_900Black,
@@ -16,47 +19,16 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      {topo()}
-
-      {/*titulo*/}
-      {titulo()}
-
-      {/*lista de imagem*/}
-      <ScrollView>
-        <View style={styles.listaContainer}>
-          {linha(1)}
-          {linha(3)}
-          {linha(5)}
-        </View>
-      </ScrollView>
-      <StatusBar />
-    </View>
+    <NavigationContainer>
+    <Stack.Navigation>
+        <Stack.Screen name="home" component={HomeScreen}/>
+        <Stack.Screen name="datails" component={DatailsScreen}/>
+    </Stack.Navigation>
+    </NavigationContainer>
   );
-}
+};
 
-function topo() {
-  return <View style={styles.topoContainer}>
-    <Text style={styles.topoTexto}>Ligtheria</Text>
-    <View style={styles.topoImageContainer}>
-      <Image style={styles.topoImagem} source={require('./assets/icone-sacola.png')} />
-    </View>
-  </View>;
-}
-
-function titulo() {
-  return <View style={styles.tituloContainer}>
-    <Text style={styles.tituloTexto}>Categorias</Text>
-  </View>;
-}
-
-function linha(nroLinha) {
-  let id = nroLinha
-  return <View style={styles.listaLinhaContainer}>
-    <Card id={nroLinha} />
-    <Card id={++nroLinha} />
-  </View>;
-}
+export default App;
 
 
 

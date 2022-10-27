@@ -64,6 +64,8 @@ export const styles = StyleSheet.create({
     width: "48%",
     alignItems: "center",
     paddingVertical: 28,
+    padding: 30,
+    marginTop: 20
 
   },
   cardImage: {
