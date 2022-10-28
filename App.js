@@ -20,10 +20,10 @@ const App = () =>{
 
   return (
     <NavigationContainer>
-    <Stack.Navigation>
+    <Stack.Navigator initialRouteName='home'>
         <Stack.Screen name="home" component={HomeScreen}/>
         <Stack.Screen name="datails" component={DatailsScreen}/>
-    </Stack.Navigation>
+    </Stack.Navigator>
     </NavigationContainer>
   );
 };
