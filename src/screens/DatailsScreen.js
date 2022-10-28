@@ -1,11 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
+import Card from '../components/Card';
 
-export default function DatailsScreen() {
+export default function DatailsScreen({route}) {
+
+const {id} = route.params;
 
     return (
         <View style={{flex: 1, justifyContent: "center",alignItems: "center"}}>
-            <Text>Details Screen</Text>
+            <Card id={id} onPress={() => Alert.alert('fim')} />
         </View>
     );
 }

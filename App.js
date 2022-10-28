@@ -21,8 +21,8 @@ const App = () =>{
   return (
     <NavigationContainer>
     <Stack.Navigator initialRouteName='home'>
-        <Stack.Screen name="home" component={HomeScreen}/>
-        <Stack.Screen name="datails" component={DatailsScreen}/>
+        <Stack.Screen name="home" component={HomeScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="datails" component={DatailsScreen} options={{title:"Detalhes do prod"}}/>
     </Stack.Navigator>
     </NavigationContainer>
   );

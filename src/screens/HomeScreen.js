@@ -5,7 +5,8 @@ import { getData } from '../utils/data';
 import { styles } from '../utils/styles';
 
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
+  const navegacao = (id) => {navigation.navigate("datails", {id: id}) }
 
   function titulo() {
     return (
@@ -34,10 +35,10 @@ export default function HomeScreen() {
       {topo()}
 
       {titulo()}
-          
+
       <FlatList
         data={getData()}
-        renderItem={({ item }) => (   <Card id={item.id}/>   ) }
+        renderItem={({ item }) => (   <Card id={item.id}  onPress={navegacao} />   ) }
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-between" }}
       />
